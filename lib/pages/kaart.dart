@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 
 import 'package:beekctrl/blocs/theme.dart';
 import 'package:beekctrl/pages/imagePage.dart';
@@ -51,7 +50,9 @@ class _KaartState extends State<Kaart> {
                   double vvCijfer = element.data['confidence'];
                   bool isvv = element.data['vervuild'];
                   String path = isvv
-                      ? vvCijfer > 0.65 ? 'assets/red.png' : 'assets/yellow.png'
+                      ? vvCijfer > 0.65
+                          ? 'assets/red.png'
+                          : 'assets/yellow.png'
                       : vvCijfer < 0.65
                           ? 'assets/yellow.png'
                           : 'assets/green.png';
@@ -214,7 +215,9 @@ class KaartPanel extends StatelessWidget {
                                   height: (height * 13) * conf,
                                   width: width / 4,
                                   color: vervuild
-                                      ? conf < 0.75 ? Colors.yellow : Colors.red
+                                      ? conf < 0.75
+                                          ? Colors.yellow
+                                          : Colors.red
                                       : Colors.green,
                                 ),
                               ),
